@@ -1,13 +1,9 @@
 sudo: required
-
 language: generic
-
 services:
   - docker
-
 before_install:
   - echo "start creating an image with dockerfile"
   - docker build -t lsmin01/docker-react-app -f Dockerfile.dev .
-
 script: 
   - docker run -e CI=true lsmin01/docker-react-app npm run test -- --coverage
